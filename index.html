@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#12052b">
+  <meta name="description" content="KHAYE PI PAY - Pi Browser merchant invoices and secure Pi payments">
+  <title>KHAYE PI PAY</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <main class="phone">
+    <header>
+      <div class="brand"><span class="coin">π</span><div><b>KHAYE <i>PI PAY</i></b><small>Pay · Send · Receive</small></div></div>
+      <span class="avatar">KP</span>
+    </header>
+
+    <section class="balance">
+      <small>YOUR PI BALANCE</small>
+      <h1>— <span>π</span></h1>
+      <p id="welcome">Connect your Pi account to get started</p>
+      <button id="login" class="gold" disabled>Connect Pi account</button>
+    </section>
+
+    <nav class="actions" aria-label="Payment actions">
+      <button id="scan">▦<small>Scan & Pay</small></button>
+      <button id="receive">↓<small>Merchant</small></button>
+      <button id="code">⌗<small>Payment code</small></button>
+    </nav>
+
+    <section class="panel" id="payPanel">
+      <h2>Confirm merchant invoice</h2>
+      <div id="invoicePreview" class="invoice-preview">
+        <p class="hint">Load a merchant payment code or open a merchant QR link. The merchant name and exact Pi amount will be shown here before you pay.</p>
+      </div>
+      <button id="pay" class="primary" disabled>Continue with Pi</button>
+      <p class="hint">Pi payment opens in Pi Browser. An invoice is marked paid only after the server verifies Pi's completion response.</p>
+    </section>
+
+    <section class="panel hidden" id="receivePanel">
+      <h2>Merchant account</h2>
+      <p class="hint" id="merchantState">Sign in with Pi to create your merchant profile.</p>
+      <label for="storeName">Store / business name</label>
+      <input id="storeName" maxlength="40" placeholder="e.g. Khaye Store">
+      <button id="registerMerchant" class="secondary" disabled>Create / update merchant profile</button>
+
+      <div class="section-divider"></div>
+      <h2>Create a payment invoice</h2>
+      <label for="receiveAmount">Amount in Pi</label>
+      <input id="receiveAmount" type="number" min="0.0000001" max="1000000" step="0.0000001" inputmode="decimal" placeholder="0.00">
+      <label for="invoiceMemo">What is the customer paying for?</label>
+      <input id="invoiceMemo" maxlength="80" placeholder="e.g. Takeaway order 104">
+      <label for="invoiceExpiry">Invoice expiry</label>
+      <select id="invoiceExpiry">
+        <option value="30">30 minutes</option>
+        <option value="60">1 hour</option>
+        <option value="240">4 hours</option>
+        <option value="1440">24 hours</option>
+      </select>
+      <button id="makeQr" class="primary" disabled>Create invoice & QR code</button>
+      <div id="qrWrap" class="qr-wrap hidden">
+        <div id="qr"></div>
+        <code id="requestCode"></code>
+        <p class="hint" id="invoiceExpiryText"></p>
+        <button id="copyCode" class="secondary">Copy payment code</button>
+      </div>
+      <div class="section-divider"></div>
+      <h2>Your latest invoices</h2>
+      <div id="merchantInvoices" class="list-empty">No merchant invoices loaded.</div>
+    </section>
+
+    <section class="panel hidden" id="codePanel">
+      <h2>Enter payment code</h2>
+      <p class="hint">Ask the merchant for their KHAYE PI PAY code, then check the invoice details before paying.</p>
+      <label for="paymentCode">Merchant payment code</label>
+      <input id="paymentCode" maxlength="35" placeholder="KP-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" autocomplete="off">
+      <button id="loadCode" class="primary">Find invoice</button>
+      <p class="hint">You can also open a merchant's QR link inside Pi Browser to load an invoice.</p>
+      <div id="scannerWrap" class="scanner-wrap hidden">
+        <div id="qrReader"></div>
+        <button id="stopScan" class="secondary">Stop camera</button>
+        <p class="hint">Camera access is used only to read a KHAYE PI PAY invoice QR code.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Verified activity</h2>
+      <div id="activity" class="list-empty">Sign in with Pi to view completed KHAYE PI PAY invoice payments.</div>
+    </section>
+
+    <footer>Secure Pi payments · Sandbox / Testnet development</footer>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

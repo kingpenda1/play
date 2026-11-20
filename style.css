@@ -1,0 +1,23 @@
+:root{color-scheme:dark;--bg:#100522;--panel:#190a30;--purple:#6824d9;--purple2:#39115f;--gold:#f6c44c;--muted:#b9a9d2;--line:#49256e;--green:#6ee7a8;--red:#ff8c9b}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% 0,#35105d,#080311 65%);font-family:Inter,system-ui,Arial,sans-serif;color:#fff;padding:22px}
+.phone{max-width:460px;margin:0 auto;min-height:90vh}
+header,.brand,.actions{display:flex;align-items:center;justify-content:space-between}
+.brand{justify-content:flex-start;gap:12px}.brand b{font-size:19px;letter-spacing:.4px}.brand i{color:var(--gold);font-style:normal}.brand small,small,.hint{color:var(--muted)}.brand small{display:block;font-size:11px;margin-top:3px}
+.coin{width:46px;height:46px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:28px}
+.avatar{border:1px solid #8053bd;border-radius:50%;padding:10px;color:var(--gold)}
+.balance{margin:25px 0 16px;padding:24px;border:1px solid #8146dc;border-radius:25px;background:linear-gradient(135deg,#5420a5,#210944 65%,#100522);box-shadow:0 10px 40px #6422c955}
+.balance h1{font-size:42px;margin:8px 0}.balance h1 span{color:var(--gold)}.balance p{color:var(--muted);font-size:13px}
+.actions{gap:10px}.actions button{flex:1;background:#29104b;border:1px solid #6733a6;border-radius:17px;color:#fff;padding:17px 5px;font-size:26px}.actions button:active{background:#492078}.actions small{display:block;font-size:12px;margin-top:8px;color:#fff}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:19px;margin-top:16px}.panel h2{font-size:17px;margin:0 0 14px}.panel label{display:block;color:var(--muted);font-size:12px;margin:12px 0 6px}
+input,select{width:100%;background:#0f061d;color:#fff;border:1px solid #55327c;border-radius:11px;padding:13px;font-size:16px;outline:none}input:focus,select:focus{border-color:var(--gold)}
+button{cursor:pointer;font-weight:650;border:0}button:disabled{opacity:.45;cursor:not-allowed}
+.primary,.gold,.secondary{width:100%;padding:14px;border-radius:12px;margin-top:14px}.primary{background:linear-gradient(90deg,#762de9,#4b16ad);color:white}.gold{background:linear-gradient(90deg,#f5cf6a,#bd8122);color:#190d28}.secondary{background:#2c1647;border:1px solid #7142a6;color:#f5eaff}
+.hint{font-size:12px;line-height:1.5}.hidden{display:none!important}.section-divider{height:1px;background:#44245f;margin:22px 0}
+.invoice-preview{border:1px solid #56347a;background:#120824;border-radius:14px;padding:14px;min-height:78px}.invoice-preview .merchant{font-size:14px;color:var(--gold);font-weight:700}.invoice-preview .amount{font-size:28px;font-weight:750;margin:7px 0}.invoice-preview .detail{font-size:12px;color:var(--muted);line-height:1.5}.invoice-preview .state{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--green)}
+.qr-wrap{margin-top:16px;text-align:center}.qr-wrap #qr{background:#fff;width:max-content;padding:12px;margin:14px auto;border-radius:12px}.qr-wrap code{display:block;color:var(--gold);font-size:14px;overflow-wrap:anywhere}
+.list-empty{font-size:12px;color:var(--muted);line-height:1.5}.invoice-row,.activity-row{border-top:1px solid #38204e;padding:12px 0;display:flex;justify-content:space-between;gap:12px;font-size:12px}.invoice-row:first-child,.activity-row:first-child{border-top:0}.row-title{font-weight:700;color:#fff}.row-meta{color:var(--muted);margin-top:4px}.row-amount{text-align:right;color:var(--gold);font-weight:700;white-space:nowrap}.status-open{color:var(--green)}.status-paid{color:var(--green)}.status-payment_pending{color:var(--gold)}.status-expired,.status-cancelled{color:var(--red)}
+footer{text-align:center;color:#8f7da8;font-size:11px;padding:24px}#status{text-align:center;color:var(--gold);font-size:13px;min-height:22px;line-height:1.5}
+@media(max-width:420px){body{padding:14px}.panel{padding:16px}.balance{padding:20px}}
+
+.scanner-wrap{margin-top:16px;padding:12px;border:1px solid #56347a;border-radius:14px;background:#120824}.scanner-wrap #qrReader{width:100%;overflow:hidden;border-radius:10px}.scanner-wrap #qrReader video{border-radius:10px}.scanner-wrap #qrReader__dashboard_section_csr button{background:#2c1647;color:#fff;border:1px solid #7142a6;border-radius:8px;padding:8px}
